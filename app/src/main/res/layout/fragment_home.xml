@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@mipmap/background3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/audiowide"
+                android:text="Home"
+                android:textColor="@color/white"
+                android:textSize="80dp" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#177cbb"
+                android:text="New Visitor"
+                android:textSize="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#177cbb"
+                android:text="Returning Visitor"
+                android:textSize="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#177cbb"
+                android:text="Exiting Visitor"
+                android:textSize="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#177cbb"
+                android:text="Still On Premises"
+                android:textSize="16dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+
+
+</FrameLayout>
