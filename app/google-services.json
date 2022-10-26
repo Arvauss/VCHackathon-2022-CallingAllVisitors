@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "398950633772",
+    "firebase_url": "https://callingallvisitors-default-rtdb.firebaseio.com",
+    "project_id": "callingallvisitors",
+    "storage_bucket": "callingallvisitors.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398950633772:android:83499261e1b4a5e78b5c89",
+        "android_client_info": {
+          "package_name": "com.example.callingallvisitors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398950633772-5ogpf2ukn1rt080dte3uku03k7fblqpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGqR7sZIONAMktAofPSUFQH9GEwlkuITE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398950633772-5ogpf2ukn1rt080dte3uku03k7fblqpi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
