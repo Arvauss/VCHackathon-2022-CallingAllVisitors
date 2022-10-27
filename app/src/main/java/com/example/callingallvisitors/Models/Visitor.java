@@ -8,6 +8,8 @@ public class Visitor {
     private String residentPhoneNumber;
     private String placeVisited;
     private String dateVisited;
+    //TODO
+    private String url;
 
     public Visitor(String name, String surname, String idNumber, String resident, String residentPhoneNumber, String placeVisited, String dateVisited) {
         this.name = name;

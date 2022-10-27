@@ -98,5 +98,13 @@ public class Register extends Fragment {
 
             }
         });
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getParentFragmentManager();
+                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Welcome.class,null).addToBackStack(null).commit();
+            }
+        });
     }
 }

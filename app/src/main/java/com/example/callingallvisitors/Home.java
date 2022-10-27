@@ -51,7 +51,7 @@ public class Home extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fm = getParentFragmentManager();
-                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Home.class,null).addToBackStack(null).commit();
+                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, ReturningVisitor.class,null).addToBackStack(null).commit();
             }
         });
 
@@ -59,7 +59,7 @@ public class Home extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fm = getParentFragmentManager();
-                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Home.class,null).addToBackStack(null).commit();
+                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, ExitingVisitor.class,null).addToBackStack(null).commit();
             }
         });
 
@@ -67,7 +67,7 @@ public class Home extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fm = getParentFragmentManager();
-                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Home.class,null).addToBackStack(null).commit();
+                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, StillOnPremises.class,null).addToBackStack(null).commit();
             }
         });
 
