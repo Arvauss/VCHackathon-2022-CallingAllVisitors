@@ -25,7 +25,8 @@
                 android:fontFamily="@font/audiowide"
                 android:text="Home"
                 android:textColor="@color/white"
-                android:textSize="80dp" />
+                android:textSize="80dp"
+                android:gravity="center"/>
         </LinearLayout>
 
     <LinearLayout

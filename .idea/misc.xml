@@ -5,10 +5,13 @@
       <map>
         <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/activity_main.xml" value="0.30052083333333335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_exiting_visitor.xml" value="0.2817311604817708" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.29503390547158065" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_new_visitor.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_new_visitor.xml" value="0.33889224287392433" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_returning_visitor.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_still_on_premises.xml" value="0.29583333333333334" />
       </map>
     </option>
   </component>
