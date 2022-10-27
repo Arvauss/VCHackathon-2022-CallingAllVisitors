@@ -4,62 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/background1"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@mipmap/background1">
-
-        <LinearLayout
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/WelcomeFrag"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="50dp">
+            android:layout_height="match_parent">
+        </androidx.fragment.app.FragmentContainerView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Welcome"
-                android:textSize="80dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/audiowide"/>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="0dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#177cbb"
-                    android:text="Login"
-                    android:textSize="16dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="40dp">
-
-                <Button
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:text="Register"
-                    android:backgroundTint="#177cbb"
-                    android:textSize="16dp"/>
-            </LinearLayout>
-
-        </LinearLayout>
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

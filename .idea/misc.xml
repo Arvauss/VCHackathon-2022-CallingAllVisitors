@@ -4,11 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/activity_main.xml" value="0.30052083333333335" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_new_visitor.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.19610507246376813" />
+        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_home.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_login.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_new_visitor.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_register.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_welcome.xml" value="0.30052083333333335" />
       </map>
     </option>
   </component>
@@ -17,12 +17,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.19610507246376813" />
-      </ProjectState>
-    </option>
   </component>
 </project>

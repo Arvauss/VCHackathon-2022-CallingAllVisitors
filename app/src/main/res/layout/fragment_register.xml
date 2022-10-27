@@ -55,6 +55,7 @@
                     android:paddingTop="30dp"
                     >
                     <EditText
+                        android:id="@+id/edtName"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -73,6 +74,7 @@
                     android:paddingRight="40dp"
                     >
                     <EditText
+                        android:id="@+id/edtSurname"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -91,11 +93,12 @@
                     android:paddingRight="40dp"
                     >
                     <EditText
+                        android:id="@+id/edtEmail"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:backgroundTint="@color/white"
-                        android:hint="Username"
+                        android:hint="Email"
                         android:textColorHint="@color/white"
                         android:textSize="20dp"
                         />
@@ -109,6 +112,7 @@
                     android:paddingRight="40dp"
                     >
                     <EditText
+                        android:id="@+id/edtPassword"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -127,6 +131,7 @@
                     android:paddingRight="40dp"
                     >
                     <EditText
+                        android:id="@+id/edtConPass"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -144,9 +149,10 @@
 
                     >
                     <Button
+                        android:id="@+id/btnRegister"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:text="Login"
+                        android:text="Register"
                         android:backgroundTint="#177cbb"
                         android:textSize="16dp"/>
                 </LinearLayout>
@@ -158,6 +164,7 @@
                     android:paddingBottom="30dp"
                     >
                     <Button
+                        android:id="@+id/btnCancel"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:text="Cancel"
