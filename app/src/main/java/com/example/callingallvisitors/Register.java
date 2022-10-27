@@ -1,9 +1,11 @@
 package com.example.callingallvisitors;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -56,6 +58,7 @@ public class Register extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         registerBtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
 
@@ -67,7 +70,7 @@ public class Register extends Fragment {
 
                 User user;
 
-                user = new User(uEmail, uPassword);
+                user = new User(uName, uSurname, uEmail, uPassword);
 
                 mAuth = FirebaseAuth.getInstance();
                 mAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
@@ -75,7 +78,7 @@ public class Register extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    //user.setPassword(User_Model.hidePasswordWithAsterix(user.getPassword()));
+                                    user.setPassword(User.hidePasswordWithAsterix(user.getPassword()));
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     DatabaseReference myRef = database.getReference();
                                     myRef.child("Users").child(mAuth.getUid()).setValue(user);
@@ -85,7 +88,7 @@ public class Register extends Fragment {
                                     fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Welcome.class,null).addToBackStack(null).commit();
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(getActivity(), "Authentication failed.",
+                                    Toast.makeText(getActivity(), "Registration failed.",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }

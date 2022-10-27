@@ -80,6 +80,7 @@
                         android:textColor="@color/white"
                         android:backgroundTint="@color/white"
                         android:hint="Password"
+                        android:inputType="textPassword"
                         android:textColorHint="@color/white"
                         android:textSize="20dp"
                         />

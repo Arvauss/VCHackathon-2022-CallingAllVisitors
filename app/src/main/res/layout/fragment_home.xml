@@ -39,6 +39,7 @@
             android:layout_height="wrap_content">
 
             <Button
+                android:id="@+id/newVisitorBtn"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#177cbb"
@@ -52,6 +53,7 @@
             android:paddingTop="40dp">
 
             <Button
+                android:id="@+id/visitorsOnPremises"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#177cbb"
@@ -65,6 +67,7 @@
             android:paddingTop="40dp">
 
             <Button
+                android:id="@+id/returningVisitorBtn"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#177cbb"
@@ -78,6 +81,7 @@
             android:paddingTop="40dp">
 
             <Button
+                android:id="@+id/exitingVisitor"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#177cbb"

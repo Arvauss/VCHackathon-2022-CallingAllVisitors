@@ -55,15 +55,16 @@
                 android:paddingRight="40dp"
                 android:paddingTop="30dp"
                 >
+
                 <EditText
+                    android:id="@+id/edtvName"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:backgroundTint="@color/white"
                     android:hint="Name"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:textSize="20dp"
-                    />
+                    android:textSize="20dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -74,6 +75,7 @@
                 android:paddingRight="40dp"
                 >
                 <EditText
+                    android:id="@+id/edtvSurname"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -92,11 +94,12 @@
                 android:paddingRight="40dp"
                 >
                 <EditText
+                    android:id="@+id/edtID"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:backgroundTint="@color/white"
-                    android:hint="Username"
+                    android:hint="ID Number"
                     android:textColorHint="@color/white"
                     android:textSize="20dp"
                     />
@@ -110,11 +113,12 @@
                 android:paddingRight="40dp"
                 >
                 <EditText
+                    android:id="@+id/edtResidentName"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:backgroundTint="@color/white"
-                    android:hint="Create Password"
+                    android:hint="Resident"
                     android:textColorHint="@color/white"
                     android:textSize="20dp"
                     />
@@ -128,6 +132,7 @@
                 android:paddingRight="40dp"
                 >
                 <EditText
+                    android:id="@+id/edtResidentPhoneNumber"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -137,6 +142,22 @@
                     android:textSize="20dp"
                     />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/scanFaceBtn"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Scan Face"
+                android:backgroundTint="#177cbb"
+                android:textSize="16dp"/>
+            <Button
+                android:id="@+id/processVisitorBtn"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Process"
+                android:backgroundTint="#177cbb"
+                android:textSize="16dp"/>
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
