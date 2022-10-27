@@ -144,6 +144,7 @@
                     android:textColor="@color/white"
                     android:backgroundTint="@color/white"
                     android:hint="Resident Phone Number"
+                    android:inputType="number"
                     android:textColorHint="@color/white"
                     android:textSize="20dp"
                     />

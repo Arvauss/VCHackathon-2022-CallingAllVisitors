@@ -78,7 +78,7 @@ public class Register extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    user.setPassword(User.hidePasswordWithAsterix(user.getPassword()));
+                                    //user.setPassword(User.hidePasswordWithAsterix(user.getPassword()));
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     DatabaseReference myRef = database.getReference();
                                     myRef.child("Users").child(mAuth.getUid()).setValue(user);
