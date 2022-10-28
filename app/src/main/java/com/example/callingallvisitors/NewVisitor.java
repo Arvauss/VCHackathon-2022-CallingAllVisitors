@@ -22,6 +22,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,8 @@ import com.google.mlkit.vision.face.Face;
 import com.google.mlkit.vision.face.FaceDetection;
 import com.google.mlkit.vision.face.FaceDetector;
 import com.google.mlkit.vision.face.FaceDetectorOptions;
+import com.regula.facesdk.FaceSDK;
+import com.regula.facesdk.configuration.FaceCaptureConfiguration;
 import com.regula.facesdk.enums.ImageType;
 import com.regula.facesdk.model.MatchFacesImage;
 
@@ -62,6 +65,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -85,7 +89,7 @@ public class NewVisitor extends Fragment {
     Uri imageUri;
     StorageReference storageReference;
     protected static final int CAMERA_REQUEST_CODE = 2;
-    ActivityResultLauncher<Intent> activityResultLauncher;
+    ActivityResultLauncher<String[]> activityResultLauncher;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -114,12 +118,21 @@ public class NewVisitor extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        String[] appPerms;
+        appPerms = new String[]{ Manifest.permission.CAMERA};
 
         mAuth = FirebaseAuth.getInstance();
         scanFace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (ContextCompat.checkSelfPermission(getContext().getApplicationContext(),
+                        Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    activityResultLauncher.launch(appPerms);
+                    //requestPermissions(new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_CODE);
+                } else {
+                    startFaceCaptureActivity();
+                }
+                /*
                 if (ContextCompat.checkSelfPermission(getContext().getApplicationContext(),
                         Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
@@ -142,24 +155,23 @@ public class NewVisitor extends Fragment {
                                 .show();
                     }
                 }
+
+                 */
             }
         });
 
-        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), new ActivityResultCallback<Map<String, Boolean>>() {
             @Override
-            public void onActivityResult(ActivityResult result) {
-                Bundle extra = result.getData().getExtras();
-                bitmapImage = (Bitmap)extra.get("data");
-                //WeakReference<Bitmap> result1 = new WeakReference<>(Bitmap.createScaledBitmap(
-                //      bitmap,bitmap.getHeight(),bitmap.getWidth(),false).copy(Bitmap.Config.ARGB_8888,true));
-                //imageUri = data.getData();
-                //Bitmap bm = result1.get();
-                imageView.setImageURI(null);
-                imageUri = saveImage(bitmapImage, getActivity());
-                //collectionImage.setImageURI(imageUri);
-                imageView.setImageURI(imageUri);
-                MatchFacesImage faceImage = new MatchFacesImage(bitmapImage, ImageType.PRINTED, true);
+            public void onActivityResult(Map<String, Boolean> result) {
+                Log.e("activityResultLauncher", ""+result.toString());
+                Boolean areAllGranted = true;
+                for(Boolean b : result.values()) {
+                    areAllGranted = areAllGranted && b;
+                }
 
+                if(areAllGranted) {
+                    startFaceCaptureActivity();
+                }
             }
         });
 
@@ -176,7 +188,20 @@ public class NewVisitor extends Fragment {
                         fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
+                                String vName = name.getText().toString();
+                                String vSurname = surname.getText().toString();
+                                String vID = idNumber.getText().toString();
+                                String vResident = resident.getText().toString();
+                                String vResidentPhoneNumber = residentPhonenumebr.getText().toString();
 
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference myRef = database.getReference();
+                                DatabaseReference visitorPush = myRef.child("Visitors").push();
+                                String currentUserID = currUser.getUid();
+
+                                Visitor nv = new Visitor(vName, vSurname, vID, vResident, vResidentPhoneNumber, currentUserID, date);
+                                nv.setUrl(uri.toString());
+                                visitorPush.setValue(nv);
                             }
                         });
 
@@ -188,33 +213,25 @@ public class NewVisitor extends Fragment {
                         Toast.makeText(getContext().getApplicationContext(),"Upload of image failed.",Toast.LENGTH_LONG).show();
                     }
                 });
-                String vName = name.getText().toString();
-                String vSurname = surname.getText().toString();
-                String vID = idNumber.getText().toString();
-                String vResident = resident.getText().toString();
-                String vResidentPhoneNumber = residentPhonenumebr.getText().toString();
-
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference();
-                DatabaseReference visitorPush = myRef.child("Visitors").push();
-                String currentUserID = currUser.getUid();
-
-                Visitor nv = new Visitor(vName, vSurname, vID, vResident, vResidentPhoneNumber, currentUserID, date);
-
-                visitorPush.setValue(nv);
             }
         });
 
-        scanFace.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
 
     }
 
+    private void startFaceCaptureActivity() {
+        FaceCaptureConfiguration config = new FaceCaptureConfiguration.Builder().setCameraSwitchEnabled(true).build();
+
+        FaceSDK.Instance().presentFaceCaptureActivity(getActivity(), config, res ->{
+            if (res.getImage() == null) return;
+            bitmapImage = res.getImage().getBitmap();
+            //v.setImageBitmap(res.getImage().getBitmap());
+           // v.setTag(ImageType.LIVE);
+            imageUri = saveImage(bitmapImage, getActivity());
+            Toast.makeText(getContext().getApplicationContext(),"Image Saved",Toast.LENGTH_SHORT).show();
+        });
+    }
     private void detectFace(Bitmap bitmap)
     {
         FaceDetectorOptions highAccuracyOpts =
@@ -272,7 +289,7 @@ public class NewVisitor extends Fragment {
                             Toast.makeText(getContext().getApplicationContext(),"No Face Detected", Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            Toast.makeText(getContext().getApplicationContext(),"Face Detected and File uploaded", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext().getApplicationContext(),"Face Detected ", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -304,7 +321,7 @@ public class NewVisitor extends Fragment {
             stream.flush();
             stream.close();
             //Get uri from the FileProvider(Projects, 2022)
-            uri = FileProvider.getUriForFile(context.getApplicationContext(),"com.company.callingallvisitors" + ".provider",file);
+            uri = FileProvider.getUriForFile(context.getApplicationContext(),"com.example.callingallvisitors" + ".provider",file);
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }catch (IOException e){
@@ -321,5 +338,6 @@ public class NewVisitor extends Fragment {
         MimeTypeMap mimeType = MimeTypeMap.getSingleton();
         return mimeType.getExtensionFromMimeType(cr.getType(uriImage));
     }
+
 
 }
