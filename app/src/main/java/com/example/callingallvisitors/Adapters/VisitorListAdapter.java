@@ -57,7 +57,7 @@ public class VisitorListAdapter  extends ArrayAdapter<Visitor> {
         viewHolder.txtTime.setText(v.getDateVisited());
 
 
-        return null;
+        return result;
     }
 
     private static class ViewHolder {

@@ -211,10 +211,10 @@
                             android:id="@+id/visitorCheckouttxtv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:clickable="true"
                             android:text="Data"
                             android:textColor="@color/white"
-                            android:clickable="true"
-                            android:textSize="20dp"/>
+                            android:textSize="20dp" />
 
 
                     </LinearLayout>

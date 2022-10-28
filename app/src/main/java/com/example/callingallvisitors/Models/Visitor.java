@@ -13,6 +13,10 @@ public class Visitor {
     //TODO
     private String url;
 
+    public Visitor()
+    {
+
+    }
     public Visitor(String name, String surname, String idNumber, String resident, String residentPhoneNumber, String placeVisited, String dateVisited) {
         this.name = name;
         this.surname = surname;
