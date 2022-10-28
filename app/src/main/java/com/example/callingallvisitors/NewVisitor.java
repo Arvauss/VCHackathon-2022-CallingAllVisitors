@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.callingallvisitors.Models.Visitor;
@@ -34,8 +35,9 @@ public class NewVisitor extends Fragment {
 
     private FirebaseAuth mAuth;
     View visitor;
-    EditText name, surname, idNumber, resident, residentPhonenumebr;
-    Button scanFace, processVisitor;
+    EditText name, surname, idNumber, resident, residentPhonenumebr, edtScanID, edtScanCar;
+    Button scanFace, processVisitor,btnOkID, btnOkCar;
+    LinearLayout DataNewVisitor, DataCar;
 
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
@@ -53,14 +55,19 @@ public class NewVisitor extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
 
-        name = visitor.findViewById(R.id.edtvName);
-        surname = visitor.findViewById(R.id.edtvSurname);
-        idNumber = visitor.findViewById(R.id.edtID);
-        resident = visitor.findViewById(R.id.edtResidentName);
-        residentPhonenumebr = visitor.findViewById(R.id.edtResidentPhoneNumber);
-
-        scanFace = visitor.findViewById(R.id.scanFaceBtn);
-        processVisitor = visitor.findViewById(R.id.processVisitorBtn);
+        name = visitor.findViewById(R.id.name);
+        surname = visitor.findViewById(R.id.surname);
+        idNumber = visitor.findViewById(R.id.idNumber);
+        resident = visitor.findViewById(R.id.resident);
+        residentPhonenumebr = visitor.findViewById(R.id.residentPhonenumebr);
+        edtScanID = visitor.findViewById(R.id.edtScanID);
+        edtScanCar = visitor.findViewById(R.id.edtScanCar);
+        DataNewVisitor = visitor.findViewById(R.id.DataNewVisitor);
+        DataCar = visitor.findViewById(R.id.DataCar);
+        btnOkID = visitor.findViewById(R.id.btnOkID);
+        btnOkCar = visitor.findViewById(R.id.btnOkCar);
+        scanFace = visitor.findViewById(R.id.scanFace);
+        processVisitor = visitor.findViewById(R.id.processVisitor);
         return visitor;
     }
 
@@ -107,6 +114,35 @@ public class NewVisitor extends Fragment {
         scanFace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+            }
+        });
+
+        edtScanID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataNewVisitor.setVisibility(View.VISIBLE);
+
+            }
+        });
+        btnOkID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataNewVisitor.setVisibility(View.GONE);
+
+            }
+        });
+        edtScanCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataCar.setVisibility(View.VISIBLE);
+
+            }
+        });
+        btnOkCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataCar.setVisibility(View.GONE);
 
             }
         });
