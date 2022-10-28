@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,7 +24,8 @@ public class ReturningVisitor extends Fragment {
 
     View rVisitor;
     Button sf, cancelV, confrimV;
-    CardView vinfo;
+    ImageView visitorPhoto;
+    TextView vName, vCheckinTime;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,7 +34,9 @@ public class ReturningVisitor extends Fragment {
         sf = rVisitor.findViewById(R.id.scanRVface);
         cancelV = rVisitor.findViewById((R.id.cancelRVBtn));
         confrimV = rVisitor.findViewById(R.id.visitorConfirmedBtn);
-        vinfo = rVisitor.findViewById(R.id.visitorInfo);
+        visitorPhoto = rVisitor.findViewById(R.id.ivVisitorPhoto);
+        vName = rVisitor.findViewById(R.id.visitorNametxtv);
+        vCheckinTime = rVisitor.findViewById(R.id.visitorCheckouttxtv);
 
         return rVisitor;
     }
