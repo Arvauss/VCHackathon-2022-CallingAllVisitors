@@ -136,6 +136,7 @@
                         android:textColor="@color/white"
                         android:backgroundTint="@color/white"
                         android:hint="Create Password"
+                        android:inputType="textPassword"
                         android:textColorHint="@color/white"
                         android:textSize="20dp"
                         />
@@ -155,6 +156,7 @@
                         android:textColor="@color/white"
                         android:backgroundTint="@color/white"
                         android:hint="Confirm Password"
+                        android:inputType="textPassword"
                         android:textColorHint="@color/white"
                         android:textSize="20dp"
                         />

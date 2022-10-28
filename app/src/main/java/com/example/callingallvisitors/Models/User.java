@@ -13,6 +13,7 @@ public class User {
     private String email;
     private String password;
 
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public User(String name, String surname, String email, String password) {
         this.name = name;
@@ -59,6 +60,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static String encryptPassword(String pass)

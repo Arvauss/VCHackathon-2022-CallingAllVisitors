@@ -72,27 +72,38 @@ public class Register extends Fragment {
 
                 user = new User(uName, uSurname, uEmail, uPassword);
 
-                mAuth = FirebaseAuth.getInstance();
-                mAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
-                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    //user.setPassword(User.hidePasswordWithAsterix(user.getPassword()));
-                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                    DatabaseReference myRef = database.getReference();
-                                    myRef.child("Users").child(mAuth.getUid()).setValue(user);
-                                    Toast.makeText(getActivity(), "Registration Successful.",
-                                            Toast.LENGTH_SHORT).show();
-                                    FragmentManager fm = getParentFragmentManager();
-                                    fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Welcome.class,null).addToBackStack(null).commit();
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(getActivity(), "Registration failed.",
-                                            Toast.LENGTH_SHORT).show();
+                if(uPassword.equals(uCPassword))
+                {
+                    mAuth = FirebaseAuth.getInstance();
+                    mAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
+                            .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        //user.setPassword(User.hidePasswordWithAsterix(user.getPassword()));
+                                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                        DatabaseReference myRef = database.getReference();
+                                        myRef.child("Users").child(mAuth.getUid()).setValue(user);
+                                        Toast.makeText(getActivity(), "Registration Successful.",
+                                                Toast.LENGTH_SHORT).show();
+                                        FragmentManager fm = getParentFragmentManager();
+                                        fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Welcome.class,null).addToBackStack(null).commit();
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Toast.makeText(getActivity(), "Registration failed.",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), "Please make sure your password is typed correctly in both spaces.",
+                            Toast.LENGTH_SHORT).show();
+
+                }
+
+
 
 
 
