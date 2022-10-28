@@ -45,15 +45,21 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_height="400dp"
                 app:cardCornerRadius="40dp"
                 android:backgroundTint="#194066">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/itemListView"
+                        tools:listitem="@layout/visitor_list_template"/>
 
                 </LinearLayout>
 
