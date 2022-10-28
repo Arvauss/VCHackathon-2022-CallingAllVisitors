@@ -7,11 +7,16 @@
     tools:context=".NewVisitor">
 
     <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg4"
+        android:scaleType="centerCrop"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@mipmap/background3">
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,17 +35,22 @@
                 android:textAlignment="center"/>
         </LinearLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
 
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="40dp"
         android:backgroundTint="#194066">
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -100,6 +110,7 @@
                     android:textColor="@color/white"
                     android:backgroundTint="@color/white"
                     android:hint="ID Number"
+                    android:inputType="number"
                     android:textColorHint="@color/white"
                     android:textSize="20dp"
                     />
@@ -137,7 +148,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:backgroundTint="@color/white"
-                    android:hint="Confirm Password"
+                    android:hint="Resident Phone Number"
+                    android:inputType="number"
                     android:textColorHint="@color/white"
                     android:textSize="20dp"
                     />
@@ -163,6 +175,7 @@
     </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 

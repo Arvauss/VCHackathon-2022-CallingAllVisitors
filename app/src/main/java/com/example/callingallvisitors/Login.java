@@ -47,7 +47,7 @@ public class Login extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                mAuth.signInWithEmailAndPassword(uEmail.getText().toString(), uPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.signInWithEmailAndPassword(uEmail.getText().toString(), User.encryptPassword(uPassword.getText().toString())).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
@@ -65,6 +65,14 @@ public class Login extends Fragment {
                 });
             }
         });
+
+        /*cancelB.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getParentFragmentManager();
+                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Welcome.class,null).addToBackStack(null).commit();
+            }
+        }));*/
         return login;
     }
 }
