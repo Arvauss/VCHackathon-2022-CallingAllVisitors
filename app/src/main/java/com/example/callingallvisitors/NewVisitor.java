@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +48,7 @@ public class NewVisitor extends Fragment {
         visitor = inflater.inflate(R.layout.fragment_new_visitor, container, false);
 
         calendar = Calendar.getInstance();
-        dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm");
+        dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm aaa");
         date = dateFormat.format(calendar.getTime());
 
         mAuth = FirebaseAuth.getInstance();
@@ -97,6 +98,9 @@ public class NewVisitor extends Fragment {
                 Visitor nv = new Visitor(vName, vSurname, vID, vResident, vResidentPhoneNumber, currentUserID, date);
 
                 visitorPush.setValue(nv);
+
+                FragmentManager fm = getParentFragmentManager();
+                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Home.class,null).addToBackStack(null).commit();
             }
         });
 
