@@ -9,15 +9,15 @@
     app:cardBackgroundColor="@color/white"
     app:cardMaxElevation="12dp"
     app:cardPreventCornerOverlap="true"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="#469cdc">
 
     <LinearLayout
         android:id="@+id/VisitorListID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2"
-        android:background="">
+        android:weightSum="2">
         <!---->
 
 
@@ -39,8 +39,9 @@
                 android:textAlignment="center"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:hint="visitor name"/>
+                android:textColor="@color/white"
+                android:hint="visitor name"
+                android:textColorHint="@color/white"/>
 
 
             <TextView
@@ -54,8 +55,9 @@
                 android:textAlignment="center"
                 android:textSize="16dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:hint="check in time"/>
+                android:textColor="@color/white"
+                android:hint="check in time"
+                android:textColorHint="@color/white"/>
 
         </LinearLayout>
 
