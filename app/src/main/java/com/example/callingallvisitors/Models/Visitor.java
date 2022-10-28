@@ -8,6 +8,8 @@ public class Visitor {
     private String residentPhoneNumber;
     private String placeVisited;
     private String dateVisited;
+    private boolean hasCheckedIn;
+    private String checkOutTime;
     //TODO
     private String url;
 
@@ -19,6 +21,8 @@ public class Visitor {
         this.residentPhoneNumber = residentPhoneNumber;
         this.placeVisited = placeVisited;
         this.dateVisited = dateVisited;
+        hasCheckedIn = true;
+        checkOutTime = null;
     }
 
     public String getName() {
@@ -77,11 +81,19 @@ public class Visitor {
         this.dateVisited = dateVisited;
     }
 
-    public String getUrl() {
-        return url;
+    public boolean isHasCheckedIn() {
+        return hasCheckedIn;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setHasCheckedIn(boolean hasCheckedIn) {
+        this.hasCheckedIn = hasCheckedIn;
+    }
+
+    public String getCheckOutTime() {
+        return checkOutTime;
+    }
+
+    public void setCheckOutTime(String checkOutTime) {
+        this.checkOutTime = checkOutTime;
     }
 }

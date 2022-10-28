@@ -136,6 +136,7 @@
                                         android:layout_height="wrap_content"
                                         >
                                         <Button
+                                            android:id="@+id/confirmExitingIDBtn"
                                             android:layout_width="150dp"
                                             android:layout_height="wrap_content"
                                             android:backgroundTint="#177cbb"
@@ -156,15 +157,64 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_height="wrap_content"
                 app:cardCornerRadius="40dp"
                 android:backgroundTint="#194066">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@mipmap/ic_launcher" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Data"
+                            android:textColor="@color/white"
+                            android:clickable="true"
+                            android:textSize="20dp"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="20dp"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Data"
+                            android:textColor="@color/white"
+                            android:clickable="true"
+                            android:textSize="20dp"/>
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -182,6 +232,7 @@
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp">
                     <Button
+                        android:id="@+id/cancelExitVBtn"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#177cbb"
@@ -194,6 +245,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp">
                     <Button
+                        android:id="@+id/confirmEVBtn"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#177cbb"

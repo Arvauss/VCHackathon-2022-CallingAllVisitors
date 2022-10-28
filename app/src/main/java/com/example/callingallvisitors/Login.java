@@ -41,7 +41,7 @@ public class Login extends Fragment {
         uEmail = login.findViewById(R.id.etLoginEmail);
         uPassword = login.findViewById(R.id.etLoginPassword);
         loginB = login.findViewById(R.id.userLoginBtn);
-        cancelB = login.findViewById(R.id.userLoginBtn);
+        cancelB = login.findViewById(R.id.userCancelBtn);
 
         loginB.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -66,13 +66,13 @@ public class Login extends Fragment {
             }
         });
 
-        /*cancelB.setOnClickListener((new View.OnClickListener() {
+        cancelB.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fm = getParentFragmentManager();
                 fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Welcome.class,null).addToBackStack(null).commit();
             }
-        }));*/
+        }));
         return login;
     }
 }
