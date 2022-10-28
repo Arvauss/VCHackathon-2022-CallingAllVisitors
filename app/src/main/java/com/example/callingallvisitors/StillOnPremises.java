@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.callingallvisitors.Adapters.VisitorListAdapter;
@@ -32,6 +33,7 @@ import java.util.Map;
  */
 public class StillOnPremises extends Fragment {
 
+    TextView txtVisitors;
     View visitorOP;
     ListView visitorListLV;
     private DatabaseReference mDatabase;
@@ -52,7 +54,8 @@ public class StillOnPremises extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         visitorOP = inflater.inflate(R.layout.fragment_still_on_premises, container, false);
-        visitorListLV = visitorOP.findViewById(R.id.itemListViewVisitors);
+        //visitorListLV = visitorOP.findViewById(R.id.itemListViewVisitors);
+        txtVisitors = visitorOP.findViewById(R.id.txtVisitors);
         mDatabase = FirebaseDatabase.getInstance().getReference("Visitors");
 
         return visitorOP;
@@ -63,6 +66,7 @@ public class StillOnPremises extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ArrayList<Visitor> visitorsList = new ArrayList<>();
+
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -72,9 +76,18 @@ public class StillOnPremises extends Fragment {
                     if(v.isHasCheckedIn())
                     {
                         visitorsList.add(v);
+                        Log.d("123456", "onDataChange: User added: " + v.getName());
                     }
 
+
                 }
+                String out = "";
+                for (Visitor v: visitorsList
+                ) {
+                    out +="\n" + v.getName();
+                    out+= "\n" + v.getDateVisited() + "\n";
+                }
+                txtVisitors.setText(out);
 
 
             }
@@ -85,9 +98,11 @@ public class StillOnPremises extends Fragment {
                 System.out.println("The read failed: " + databaseError.getMessage());
             }
         });
-        Log.d("Premises", "Before adapter");
+        /*Log.d("Premises", "Before adapter");
         VisitorListAdapter vla = new VisitorListAdapter(getActivity(), R.layout.visitor_list_template,visitorsList);
-        visitorListLV.setAdapter(vla);
+        visitorListLV.setAdapter(vla);*/
+
+
 
     }
 }
