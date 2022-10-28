@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.callingallvisitors.Models.Visitor;
@@ -35,7 +36,8 @@ public class NewVisitor extends Fragment {
 
     private FirebaseAuth mAuth;
     View visitor;
-    EditText name, surname, idNumber, resident, residentPhonenumebr, edtScanID, edtScanCar;
+    TextView edtScanID, edtScanCar;
+    EditText name, surname, idNumber, resident, residentPhonenumebr;
     Button scanFace, processVisitor,btnOkID, btnOkCar;
     LinearLayout DataNewVisitor, DataCar;
 

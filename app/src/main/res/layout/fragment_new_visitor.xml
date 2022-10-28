@@ -121,12 +121,13 @@
 
                             <TextView
                                 android:id="@+id/edtScanID"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="100dp"
+                                android:layout_height="50dp"
                                 android:text="Enter Data"
                                 android:textColor="@color/white"
                                 android:clickable="true"
-                                android:textSize="16dp"/>
+                                android:textSize="16dp"
+                                android:gravity="center"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -256,12 +257,13 @@
 
                             <TextView
                                 android:id="@+id/edtScanCar"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="100dp"
+                                android:layout_height="50dp"
                                 android:clickable="true"
                                 android:text="Enter Data"
                                 android:textColor="@color/white"
-                                android:textSize="16dp" />
+                                android:textSize="16dp"
+                                android:gravity="center"/>
 
                             <LinearLayout
                                 android:id="@+id/DataCar"
