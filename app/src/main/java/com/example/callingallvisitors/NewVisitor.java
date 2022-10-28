@@ -1,6 +1,7 @@
 package com.example.callingallvisitors;
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,6 +25,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,8 +38,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.face.Face;
 import com.google.mlkit.vision.face.FaceDetection;
@@ -52,6 +60,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -74,6 +83,7 @@ public class NewVisitor extends Fragment {
     ImageView imageView;
     FaceDetector detector;
     Uri imageUri;
+    StorageReference storageReference;
     protected static final int CAMERA_REQUEST_CODE = 2;
     ActivityResultLauncher<Intent> activityResultLauncher;
 
@@ -86,7 +96,7 @@ public class NewVisitor extends Fragment {
         calendar = Calendar.getInstance();
         dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         date = dateFormat.format(calendar.getTime());
-
+        storageReference = FirebaseStorage.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
         name = visitor.findViewById(R.id.edtvName);
@@ -158,7 +168,26 @@ public class NewVisitor extends Fragment {
         processVisitor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                StorageReference fileRef = storageReference.child(System.currentTimeMillis()+ "." + getFileExtension(imageUri));
+                fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
+                        fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+
+                            }
+                        });
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(getContext().getApplicationContext(),"Upload of image failed.",Toast.LENGTH_LONG).show();
+                    }
+                });
                 String vName = name.getText().toString();
                 String vSurname = surname.getText().toString();
                 String vID = idNumber.getText().toString();
@@ -281,6 +310,11 @@ public class NewVisitor extends Fragment {
 
         //Return uri.
         return uri;
+    }
+    private String  getFileExtension(Uri uriImage) {
+        ContentResolver cr = getContext().getContentResolver();
+        MimeTypeMap mimeType = MimeTypeMap.getSingleton();
+        return mimeType.getExtensionFromMimeType(cr.getType(uriImage));
     }
 
 }
