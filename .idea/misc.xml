@@ -3,18 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/drawable/background1_background.xml" value="0.304" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/drawable/ic_launcher_background.xml" value="0.304" />
         <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/activity_main.xml" value="0.30052083333333335" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_exiting_visitor.xml" value="0.30052083333333335" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_home.xml" value="0.30052083333333335" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_login.xml" value="0.30052083333333335" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_new_visitor.xml" value="0.30052083333333335" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_register.xml" value="0.30052083333333335" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_returning_visitor.xml" value="0.30052083333333335" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_still_on_premises.xml" value="0.30052083333333335" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/layout/fragment_welcome.xml" value="0.30052083333333335" />
-        <entry key="..\:/Users/mfezi/OneDrive/Documents/School/Semester 2/Open Source Coding/CallingAllVisitors/app/src/main/res/mipmap-anydpi-v26/background1.xml" value="0.304" />
+        <entry key="..\:/Users/ntoko/OneDrive/Desktop/CallingAllVisitors/app/src/main/res/layout/activity_main.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/ntoko/OneDrive/Desktop/CallingAllVisitors/app/src/main/res/layout/fragment_home.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/ntoko/OneDrive/Desktop/CallingAllVisitors/app/src/main/res/layout/fragment_login.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/ntoko/OneDrive/Desktop/CallingAllVisitors/app/src/main/res/layout/fragment_new_visitor.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/ntoko/OneDrive/Desktop/CallingAllVisitors/app/src/main/res/layout/fragment_returning_visitor.xml" value="0.152" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_new_visitor.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.19610507246376813" />
       </map>
     </option>
   </component>
@@ -23,5 +22,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.19610507246376813" />
+      </ProjectState>
+    </option>
   </component>
 </project>

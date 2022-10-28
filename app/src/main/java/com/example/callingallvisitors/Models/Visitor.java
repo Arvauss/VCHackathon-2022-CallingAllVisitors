@@ -76,4 +76,12 @@ public class Visitor {
     public void setDateVisited(String dateVisited) {
         this.dateVisited = dateVisited;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }
