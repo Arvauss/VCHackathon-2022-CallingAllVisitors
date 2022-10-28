@@ -58,8 +58,9 @@
                     <ListView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/itemListViewVisitors"
-                        tools:listitem="@layout/visitor_list_template"/>
+                        android:id="@+id/itemListView"
+                        tools:listitem="@layout/visitor_list_template"
+                        />
 
                 </LinearLayout>
 
