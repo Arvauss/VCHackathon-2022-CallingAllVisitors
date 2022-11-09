@@ -10,6 +10,7 @@ public class Visitor {
     private String dateVisited;
     //TODO
     private String url;
+    private boolean isCheckedIn;
 
     public Visitor(String name, String surname, String idNumber, String resident, String residentPhoneNumber, String placeVisited, String dateVisited) {
         this.name = name;
@@ -19,6 +20,7 @@ public class Visitor {
         this.residentPhoneNumber = residentPhoneNumber;
         this.placeVisited = placeVisited;
         this.dateVisited = dateVisited;
+        this.isCheckedIn = true;
     }
 
     public String getName() {
@@ -83,6 +85,14 @@ public class Visitor {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public boolean isCheckedIn() {
+        return isCheckedIn;
+    }
+
+    public void setCheckedIn(boolean checkedIn) {
+        isCheckedIn = checkedIn;
     }
 
     public Visitor() {
