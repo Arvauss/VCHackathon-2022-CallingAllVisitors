@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference dbRef;
     private StorageReference storRef;
     private FirebaseApp mAuth;
-    private HashMap<String, String> FaceMap = new HashMap<>();
+    protected static HashMap<String, String> FaceMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,22 +50,16 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 getTask.execute(snapshot);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 getTask.cancel(true);
             }
         });
 
-
-
     }
 
-    private class GetDBFacesTask extends AsyncTask<DataSnapshot, Void, Void>{
-        @Override
-        protected void onPreExecute(){
-            //TODO: Setup Loading Symbol
-        }
+    private static class GetDBFacesTask extends AsyncTask<DataSnapshot, Void, Void>{
+
         @Override
         protected Void doInBackground(DataSnapshot... snapshot) {
             if (!FaceMap.isEmpty())
@@ -74,14 +68,13 @@ public class MainActivity extends AppCompatActivity {
             for (DataSnapshot dataSnapshot : snapshot[0].getChildren()){
                 Visitor v = dataSnapshot.getValue(Visitor.class);
 
-                if (v.isCheckedIn()) {
+                if (v.isHasCheckedIn() && v.getUrl() != null) {
                     if (!this.isCancelled()) {
                         FaceMap.put(dataSnapshot.getKey(), v.getUrl());
-                        Log.d("123456", FaceMap.get(dataSnapshot.getKey()));
+                        Log.d("123456", "Key: " + FaceMap.get(dataSnapshot.getKey()));
                     }
                 }
             }
-            Log.d("123456", FaceMap.toString());
             return null;
         }
 
@@ -90,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(unused);
             Log.d("123456", FaceMap.toString());
         }
+    }
+
+    public static HashMap<String, String> getFaceMap(){
+        return FaceMap;
     }
 
 
