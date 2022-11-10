@@ -97,6 +97,9 @@ public class ReturningVisitor extends Fragment {
         confrimV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentManager fm = getParentFragmentManager();
+                fm.beginTransaction().setReorderingAllowed(true).replace(R.id.WelcomeFrag, Home.class,null).addToBackStack(null).commit();
+
 
             }
         });
